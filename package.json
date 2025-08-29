@@ -1,0 +1,20 @@
+{
+  "name": "fastgodelivery",
+  "version": "1.0.0",
+  "description": "FASTGODELIVERY frontend en React para GitHub Pages",
+  "main": "src/index.js",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "homepage": "https://rimedhn.github.io/fastgodelivery"
+}
