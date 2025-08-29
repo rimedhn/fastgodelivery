@@ -1,3 +1,13 @@
+.pedidos-list-container {
+  margin-bottom: 30px;
+  padding: 15px;
+  background: #fafbfc;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.tabla-wrapper {
+  overflow-x: auto;
+}
 .pedidos-table {
   width: 100%;
   border-collapse: collapse;
@@ -25,6 +35,10 @@
   color: #e87d1e;
   font-weight: bold;
 }
+.estado-proceso {
+  color: #1e90e8;
+  font-weight: bold;
+}
 .estado-entregado {
   color: #25b025;
   font-weight: bold;
@@ -32,6 +46,96 @@
 .estado-cancelado {
   color: #dc2f2f;
   font-weight: bold;
+}
+.sin-pedidos {
+  padding: 16px;
+  text-align: center;
+  color: #888;
+}
+.error {
+  color: #dc2f2f;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.btn-ver, .btn-tomar, .btn-estado, .btn-cerrar {
+  margin: 3px 2px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  background: #1e90e8;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background 0.2s;
+}
+.btn-tomar {
+  background: #e87d1e;
+}
+.btn-estado.entregue {
+  background: #25b025;
+}
+.btn-estado.cancelado {
+  background: #dc2f2f;
+}
+.btn-cerrar {
+  background: #888;
+}
+.btn-ver:hover, .btn-tomar:hover, .btn-estado:hover, .btn-cerrar:hover {
+  opacity: 0.8;
+}
+.detalle-pedido {
+  padding: 18px;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  max-width: 500px;
+  margin: 30px auto;
+}
+.detalle-datos p {
+  font-size: 15px;
+  margin: 6px 0;
+}
+.estado-tag {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  color: #fff;
+}
+.estado-tag.pendiente {
+  background: #e87d1e;
+}
+.estado-tag.en\ proceso {
+  background: #1e90e8;
+}
+.estado-tag.entregado {
+  background: #25b025;
+}
+.estado-tag.cancelado {
+  background: #dc2f2f;
+}
+.mapa-container {
+  margin: 15px 0;
+  border-radius: 7px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+.mapa-error {
+  color: #dc2f2f;
+  padding: 10px;
+  background: #fff3f3;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+.mensaje {
+  color: #1e90e8;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.acciones-detalle {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 @media (max-width: 900px) {
   .pedidos-table, .pedidos-table thead, .pedidos-table tbody, .pedidos-table th, .pedidos-table td, .pedidos-table tr {

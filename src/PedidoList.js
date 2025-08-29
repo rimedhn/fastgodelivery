@@ -1,37 +1,46 @@
 import React, { useEffect, useState } from "react";
-import { apiRequest } from "./api";
-import "./PedidoList.css"; // <-- Importa el CSS
+import "./PedidoList.css";
 
-function PedidoList({ token, soloCliente, soloRepartidor }) {
+function PedidoList({ token, soloRepartidor, onVerDetalle }) {
   const [pedidos, setPedidos] = useState([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchPedidos = async () => {
       let action = "getPedidos";
-      if (soloCliente) action = "getPedidosCliente";
       if (soloRepartidor) action = "getPedidosRepartidor";
-      const data = await apiRequest({ action, token });
-      if (data.error) setError(data.error);
-      else setPedidos(data.pedidos || []);
+      // Reemplaza apiRequest por tu función de llamada al backend
+      const res = await window.apiRequest({ action, token });
+      if (res.error) setError(res.error);
+      else setPedidos(res.pedidos || []);
     };
     fetchPedidos();
-  }, [token, soloCliente, soloRepartidor]);
+  }, [token, soloRepartidor]);
 
-  // función para aplicar clase según estado
+  const tomarPedido = async (id_pedido) => {
+    const res = await window.apiRequest({ action: "asignarPedido", token, id_pedido });
+    if (res.ok) {
+      alert("¡Pedido asignado correctamente!");
+      window.location.reload();
+    } else {
+      alert(res.error || "Error al tomar el pedido.");
+    }
+  };
+
   const estadoClass = estado => {
     const e = estado ? estado.toLowerCase() : "";
     if (e.includes("pendiente")) return "estado-pendiente";
+    if (e.includes("en proceso")) return "estado-proceso";
     if (e.includes("entregado")) return "estado-entregado";
     if (e.includes("cancelado")) return "estado-cancelado";
     return "";
   };
 
   return (
-    <div style={{marginBottom:30}}>
+    <div className="pedidos-list-container">
       <h3>Lista de Pedidos</h3>
-      {error && <div style={{color:"red"}}>{error}</div>}
-      <div style={{overflowX:"auto"}}>
+      {error && <div className="error">{error}</div>}
+      <div className="tabla-wrapper">
         <table className="pedidos-table">
           <thead>
             <tr>
@@ -44,14 +53,14 @@ function PedidoList({ token, soloCliente, soloRepartidor }) {
               <th>Destino</th>
               <th>Estado</th>
               <th>Fecha</th>
-              <th>Notas</th>
               <th>Repartidor</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
             {pedidos.length === 0 ? (
               <tr>
-                <td colSpan={11} style={{padding:"16px",textAlign:"center",color:"#888"}}>No hay pedidos disponibles</td>
+                <td colSpan={11} className="sin-pedidos">No hay pedidos disponibles</td>
               </tr>
             ) : (
               pedidos.map((p, i) => (
@@ -65,8 +74,13 @@ function PedidoList({ token, soloCliente, soloRepartidor }) {
                   <td data-label="Destino">{p.destino}</td>
                   <td data-label="Estado" className={estadoClass(p.estado)}>{p.estado}</td>
                   <td data-label="Fecha">{new Date(p.fecha).toLocaleString()}</td>
-                  <td data-label="Notas">{p.notas}</td>
                   <td data-label="Repartidor">{p.driver_name}</td>
+                  <td data-label="Acciones">
+                    <button className="btn-ver" onClick={() => onVerDetalle(p)}>Ver detalle</button>
+                    {soloRepartidor && !p.driver_name && (
+                      <button className="btn-tomar" onClick={() => tomarPedido(p.id_pedido)}>Tomar pedido</button>
+                    )}
+                  </td>
                 </tr>
               ))
             )}
@@ -76,4 +90,5 @@ function PedidoList({ token, soloCliente, soloRepartidor }) {
     </div>
   );
 }
+
 export default PedidoList;
