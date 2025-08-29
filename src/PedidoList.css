@@ -1,0 +1,61 @@
+.pedidos-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+.pedidos-table th, .pedidos-table td {
+  padding: 10px 8px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+.pedidos-table th {
+  background: #f7f7f7;
+  color: #222;
+  font-weight: 600;
+}
+.pedidos-table tbody tr:hover {
+  background: #f0f9ff;
+  transition: background 0.2s;
+}
+.estado-pendiente {
+  color: #e87d1e;
+  font-weight: bold;
+}
+.estado-entregado {
+  color: #25b025;
+  font-weight: bold;
+}
+.estado-cancelado {
+  color: #dc2f2f;
+  font-weight: bold;
+}
+@media (max-width: 900px) {
+  .pedidos-table, .pedidos-table thead, .pedidos-table tbody, .pedidos-table th, .pedidos-table td, .pedidos-table tr {
+    display: block;
+  }
+  .pedidos-table tr {
+    margin-bottom: 15px;
+    background: #fff;
+    border-radius: 7px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+  }
+  .pedidos-table td {
+    padding: 10px;
+    border: none;
+    position: relative;
+  }
+  .pedidos-table td:before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: #444;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .pedidos-table th {
+    display: none;
+  }
+}
