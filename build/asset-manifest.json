@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/fastgodelivery/static/css/main.2c2b5bbd.css",
+    "main.js": "/fastgodelivery/static/js/main.591b6e55.js",
+    "index.html": "/fastgodelivery/index.html",
+    "main.2c2b5bbd.css.map": "/fastgodelivery/static/css/main.2c2b5bbd.css.map",
+    "main.591b6e55.js.map": "/fastgodelivery/static/js/main.591b6e55.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2c2b5bbd.css",
+    "static/js/main.591b6e55.js"
+  ]
+}

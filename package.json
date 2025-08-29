@@ -4,8 +4,10 @@
   "description": "FASTGODELIVERY frontend en React para GitHub Pages",
   "main": "src/index.js",
   "dependencies": {
+    "@react-google-maps/api": "^2.20.7",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
     "gh-pages": "^6.0.0"
@@ -16,5 +18,17 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://rimedhn.github.io/fastgodelivery"
+  "homepage": "https://rimedhn.github.io/fastgodelivery",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
