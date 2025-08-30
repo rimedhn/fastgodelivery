@@ -21,7 +21,7 @@ function PedidoMapa({ origen, destino }) {
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "TU_API_KEY_AQUI" // ← Cambia por tu API Key real
+    googleMapsApiKey: "AIzaSyCgkPgLGMRyiEYKKBzz6fNKBsVgukH9Mvk" // ← Cambia por tu API Key real
   });
 
   if (!coordsOrigen || !coordsDestino) {
