@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./PedidoList.css";
+import { apiRequest } from "../api/api"; // Asegúrate de que la ruta sea correcta
 
 function PedidoList({ token, soloRepartidor, onVerDetalle }) {
   const [pedidos, setPedidos] = useState([]);
@@ -9,8 +10,7 @@ function PedidoList({ token, soloRepartidor, onVerDetalle }) {
     const fetchPedidos = async () => {
       let action = "getPedidos";
       if (soloRepartidor) action = "getPedidosRepartidor";
-      // Reemplaza apiRequest por tu función de llamada al backend
-      const res = await window.apiRequest({ action, token });
+      const res = await apiRequest({ action, token }); // <-- Ya no uses window.apiRequest
       if (res.error) setError(res.error);
       else setPedidos(res.pedidos || []);
     };
@@ -18,7 +18,7 @@ function PedidoList({ token, soloRepartidor, onVerDetalle }) {
   }, [token, soloRepartidor]);
 
   const tomarPedido = async (id_pedido) => {
-    const res = await window.apiRequest({ action: "asignarPedido", token, id_pedido });
+    const res = await apiRequest({ action: "asignarPedido", token, id_pedido }); // <-- Aquí también
     if (res.ok) {
       alert("¡Pedido asignado correctamente!");
       window.location.reload();

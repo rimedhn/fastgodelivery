@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbwhWbKvqTNiUaq_Ws5I2MEbdf2HGls8IIsyMKcE8dcRvrLGXWsiqgG0SJstGzrd39yhtg/exec"; // <-- PON TU DEPLOYMENT REAL
+const API_URL = "https://script.google.com/macros/s/AKfycbwhWbKvqTNiUaq_Ws5I2MEbdf2HGls8IIsyMKcE8dcRvrLGXWsiqgG0SJstGzrd39yhtg/exec";
 
 export async function apiRequest(payload) {
   const params = new URLSearchParams();
