@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/fastgodelivery/static/css/main.2c2b5bbd.css",
-    "main.js": "/fastgodelivery/static/js/main.591b6e55.js",
+    "main.js": "/fastgodelivery/static/js/main.2bf4f2a1.js",
     "index.html": "/fastgodelivery/index.html",
     "main.2c2b5bbd.css.map": "/fastgodelivery/static/css/main.2c2b5bbd.css.map",
-    "main.591b6e55.js.map": "/fastgodelivery/static/js/main.591b6e55.js.map"
+    "main.2bf4f2a1.js.map": "/fastgodelivery/static/js/main.2bf4f2a1.js.map"
   },
   "entrypoints": [
     "static/css/main.2c2b5bbd.css",
-    "static/js/main.591b6e55.js"
+    "static/js/main.2bf4f2a1.js"
   ]
 }
