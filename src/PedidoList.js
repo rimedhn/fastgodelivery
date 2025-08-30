@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./PedidoList.css";
-import { apiRequest } from "../api"; // Asegúrate de que la ruta sea correcta
+import { apiRequest } from "./api"; // Asegúrate de que la ruta sea correcta
 
 function PedidoList({ token, soloRepartidor, onVerDetalle }) {
   const [pedidos, setPedidos] = useState([]);
